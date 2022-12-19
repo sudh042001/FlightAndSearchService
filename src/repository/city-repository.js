@@ -59,6 +59,16 @@ class CityRepository{
             throw(error);
         }
     }
+    async getAllCity(){
+        try{
+            const cities = await City.findAll();
+            return cities;
+        }
+        catch(error){
+            console.log("something went wrong");
+            throw(error);
+        }
+    }
       
 }
 

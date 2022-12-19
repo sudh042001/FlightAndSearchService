@@ -45,7 +45,7 @@ const {CityService} =require('../services/index');
 
  const get= async (req,res)=>{
     try{
-        const city = await cityService.createCity(req.params.id);
+        const city = await cityService.getCity(req.params.id);
         return res.status(200).json({
             data:city,
             success:true,
@@ -62,6 +62,27 @@ const {CityService} =require('../services/index');
         });
     
      }
+ }
+
+ const getAll= async (req,res)=>{
+      try{
+        const cities = await cityService.getAllCity();
+        return res.status(200).json({
+            data:cities,
+            success:true,
+            message:'successfully fetched a cities',
+            err:{}
+        });
+      }catch(error){
+        console.log(error);
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:'Not able to get the cities',
+            err:error
+        });
+    
+      }
  }
 
  const update=async(req,res)=>{
@@ -89,5 +110,6 @@ const {CityService} =require('../services/index');
     create,
     destroy,
     get,
-    update
+    update,
+    getAll
  }

@@ -52,9 +52,9 @@ class CityService {
           throw(error);
         }
     }
-    async getAllCity(){
+    async getAllCity(filter){
       try{
-        const cities= await this.cityRepository.getAllCity();
+        const cities= await this.cityRepository.getAllCity({name:filter.name});
         return cities;
       }
       catch(error)

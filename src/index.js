@@ -2,8 +2,8 @@ const express=require('express');
 const bodyparser=require('body-parser');
 const {PORT} = require('./config/serverConfig');
 const ApiRoutes = require('./routers/index');
-const db =require('./models/index');
-const {Airplane} =require('./models/index');
+//const db =require('./models/index');
+//const {Airplane} =require('./models/index');
 const setupAndStartServer = async()=>{
          // create the express object
          const app=express();
@@ -16,8 +16,8 @@ const setupAndStartServer = async()=>{
       //   {
       //      db.sequelize.sync({alter:true});
       //   }
-         const airplane=await Airplane.findByPk(1);
-         console.log(airplane.capacity); 
+         //const airplane=await Airplane.findByPk(1);
+         //console.log(airplane.capacity); 
          });
 }
 
